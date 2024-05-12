@@ -1,0 +1,22 @@
+import tkinter as tk
+from tkinter import*
+tom=Tk()
+tom.title("AIML")
+tom.geometry('500x500')
+tom.configure(bg="pink")
+tom.resizable(0,0)
+sample=IntVar()
+text1=IntVar()
+text2=IntVar()
+def hello():
+    a=text1.get()
+    b=text2.get()
+    sample.set(a*b)
+Label(tom,text="num1",font=('arial',20,'bold'),bg='blue').place(x=10,y=10)
+Label(tom,text="number 2",font=('arial',20,'bold'),bg='blue').place(x=10,y=100)
+Entry(tom,width=20,textvariable=text1,font=('algerian',25),bg='white').place(x=10,y=50)
+Entry(tom,width=20,textvariable=text2,font=('algerian',25),bg='white').place(x=10,y=150)
+Label(tom,textvariable=sample,font=('Arial','30','bold'),bg='blue').place(x=10,y=200)
+Button(tom,text='MUL',font=('algerian',15,'bold'),width=13,bg='orange',command=hello).place(x=280,y=10)
+
+tom.mainloop()
