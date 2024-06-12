@@ -1,0 +1,119 @@
+1.Write a program that generates a stream of random numbers and writes them to a file.
+2.Write a program to read the random numbers from the file created above and calculate their average.
+3.Write a program that reads from a file and handles the case where the file does not exist.
+4.Create a user-defined exception NegativeNumberError that is raised when a negative number is encountered in a list.
+5.Create a NumPy array of 10 random numbers and print them.
+6.Write a program to add and remove items from a NumPy array.
+7.Sort the NumPy array which you created.
+8.Reshape a NumPy array into a 2x5 matrix.
+9.Demonstrate indexing and slicing on the reshaped matrix.
+10.Write a program to append new data to an existing file and then read the updated file.
+
+
+
+Write a program that generates a stream of random numbers and writes them to a file.
+
+import random
+with open('Random_numbers.txt','w') as a:
+  for i in range(20):
+    Random_number = random.randint(1, 100)
+    a.write(str(Random_number) + '\n')
+
+     
+Write a program to read the random numbers from the file created above and calculate their average.
+
+
+import random
+with open('Random_numbers.txt', 'r') as a:
+    numbers = [float(line.strip()) for line in a]
+average = sum(numbers) / len(numbers)
+print(f'Average of random numbers:{average}')
+     
+
+Write a program that reads from a file and handles the case where the file does not exist.
+
+name=input("Enter the file name:")
+try:
+  with open(name, 'r') as a:
+    print("File content:",a.read())
+except FileNotFoundError:
+  print(f"The file '{name}' does not exist.")
+
+
+     
+Create a user-defined exception NegativeNumberError that is raised when a negative number is encountered in a list.
+
+
+try:
+    list1 = [1, 2, -3 , 4, 5]
+    for i in list1:
+        if i<0:
+            raise ValueError("Negative number encountered")
+    print("All numbers are non-negative.")
+except ValueError as e:
+    print(e)
+
+     
+
+Create a NumPy array of 10 random numbers and print them.
+
+import random
+import numpy as np
+a=np.random.randint(0,50,size=10)
+print(a)
+
+     
+Write a program to add and remove items from a NumPy array.
+
+
+import numpy as np
+a=[1,2,3,4,5,6,7]
+print("original array is:",np.array(a))
+b=np.append(a,10)
+print(b)
+print(np.delete(b,4))
+
+     
+Sort the NumPy array which you created.
+
+# prompt: Sort the NumPy array which you created.
+
+a=[34,23,89,56,45,76,6]
+print("original array is:",np.array(a))
+a.sort()
+print(a)
+
+     
+Reshape a NumPy array into a 2x5 matrix.
+
+import numpy as np
+a=[90,26,4,89,34,67,23,56,76,43]
+b=np.array(a)
+c=b.reshape(2,5)
+print(c)
+
+     
+Demonstrate indexing and slicing on the reshaped matrix.
+
+import numpy as np
+a=[90,26,4,89,34,67,23,56,76,43]
+b=np.array(a)
+c=b.reshape(2,5)
+print(c)
+print(c[1,3])
+print(c[0,1:4])
+
+     
+
+
+
+Write a program to append new data to an existing file and then read the updated file.
+
+
+with open('data.txt', 'a') as f:
+  f.write('\nWelcome to python class.')
+with open('data.txt', 'r') as f:
+  for line in f:
+    print(line.strip())
+
+     
